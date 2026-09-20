@@ -1,0 +1,7 @@
+{
+    "symbolInformation" :
+    [
+        { "name" : "IMAGE_VERSION_STRING", "value" :  "MAJ.MIN.REV+BN" },
+        { "name" : "IMAGE_SIGNING_KEY", "value" :  "KEY_PATH" }
+    ]
+}

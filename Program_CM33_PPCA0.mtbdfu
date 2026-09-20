@@ -1,0 +1,37 @@
+{
+    "APPInfo": {
+        "File Version": "0x1",
+        "Packet Checksum Type": "0x0",
+        "Product Id": "01020304"
+    },
+    "commands": [
+        {
+            "commandSet": [
+                {
+                    "cmdId": "0x37",
+                    "dataLength": "0x10",
+                    "repeat": "0x20"
+                },
+                {
+                    "cmdId": "0x49",
+                    "dataLength": "0x08"
+                }
+            ],
+            "dataFile": "./build/ppca_cm33_0_SSS.hex",
+            "flashRowLength": "0x200",
+            "repeat": "EoF",
+            "timeoutMS": "0x12c"
+        },
+        {
+            "commandSet": [
+                {
+                    "cmdId": "0x52",
+                    "dataBytes": "0100",
+                    "dataLength": "0x2"
+                }
+            ],
+            "flashRowLength": "0x200",
+            "timeoutS": "0x02"
+        }
+    ]
+}

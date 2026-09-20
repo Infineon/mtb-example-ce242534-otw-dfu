@@ -1,0 +1,153 @@
+{
+    "schema-version": 1.0,
+    "content": [
+        {
+            "name": "Secure Image signing",
+            "description": "Signs the input file and converts it to the MCUboot format",
+            "enabled": true,
+            "commands": [
+                {
+                    "command": "sign",
+                    "inputs": [
+                        {
+                            "description": "Secure application",
+                            "file": "../build/project_hex/main_cm33_s.hex",
+                            "signing-key": "{{ IMAGE_SIGNING_KEY }}",
+                            "header-size": "0x400",
+                            "slot-size": "{{ CYMEM_CM33_0_S_sss_image_SIZE }}",
+                            "fill-value": "0x00",
+                            "min-erase-size": "0x200",
+                            "signature-encoding": "raw",
+                            "pubkey-encoding": "raw",
+                            "pubkey-format": "full",
+                            "hex-address": "{{ CYMEM_CM33_0_S_sss_image_S_START }}",
+                            "overwrite-only": true,
+                            "align": "1",
+                            "remove-tlv": [
+                                "0x01",
+                                "0x02",
+                                "0x10",
+                                "0x11",
+                                "0x12"
+                            ],
+                            "image-version": "{{ IMAGE_VERSION_STRING }}"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "description": "SSS Signed secured application",
+                            "file": "../build/main_cm33_s_SSS.hex",
+                            "format": "ihex"
+                        }
+                    ],
+                    "extra_config": [
+                        {
+                            "project": "main_cm33_s",
+                            "debug_config_name": "main_cm33_s",
+                            "default": false,
+                            "build_dependency": "project"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PPCA_0 Image signing",
+            "description": "Signs the input file and converts it to the MCUboot format",
+            "enabled": true,
+            "commands": [
+                {
+                    "command": "sign",
+                    "inputs": [
+                        {
+                            "description": "Non-Secure application",
+                            "file": "../build/project_hex/ppca_cm33_0.hex",
+                            "signing-key": "{{ IMAGE_SIGNING_KEY }}",
+                            "header-size": "0x400",
+                            "slot-size": "{{ CYMEM_CM33_0_S_sss_image_SIZE }}",
+                            "min-erase-size": "0x200",
+                            "signature-encoding": "raw",
+                            "pubkey-encoding": "raw",
+                            "pubkey-format": "full",
+                            "hex-address": "{{ CYMEM_CM33_0_S_sss_image_S_START }}",
+                            "overwrite-only": true,
+                            "align": "1",
+                            "remove-tlv": [
+                                "0x01",
+                                "0x02",
+                                "0x10",
+                                "0x11",
+                                "0x12"
+                            ],
+                            "image-version": "{{ IMAGE_VERSION_STRING }}"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "description": "SSS Signed secured application",
+                            "file": "../build/ppca_cm33_0_SSS.hex",
+                            "format": "ihex"
+                        }
+                    ],
+                    "extra_config": [
+                        {
+                            "project": "ppca_cm33_0",
+                            "debug_config_name": "ppca_cm33_0",
+                            "default": false,
+                            "build_dependency": "project"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PPCA_1 Image signing",
+            "description": "Signs the input file and converts it to the MCUboot format",
+            "enabled": true,
+            "commands": [
+                {
+                    "command": "sign",
+                    "inputs": [
+                        {
+                            "description": "Non-Secure application",
+                            "file": "../build/project_hex/ppca_cm33_1.hex",
+                            "signing-key": "{{ IMAGE_SIGNING_KEY }}",
+                            "header-size": "0x400",
+                            "slot-size": "{{ CYMEM_CM33_0_S_sss_image_SIZE }}",
+                            "min-erase-size": "0x200",
+                            "signature-encoding": "raw",
+                            "pubkey-encoding": "raw",
+                            "pubkey-format": "full",
+                            "hex-address": "{{ CYMEM_CM33_0_S_sss_image_S_START }}",
+                            "overwrite-only": true,
+                            "align": "1",
+                            "remove-tlv": [
+                                "0x01",
+                                "0x02",
+                                "0x10",
+                                "0x11",
+                                "0x12"
+                            ],
+                            "image-version": "{{ IMAGE_VERSION_STRING }}"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "description": "SSS Signed secured application",
+                            "file": "../build/ppca_cm33_1_SSS.hex",
+                            "format": "ihex"
+                        }
+                    ],
+                    "extra_config": [
+                        {
+                            "project": "ppca_cm33_1",
+                            "debug_config_name": "ppca_cm33_1",
+                            "default": false,
+                            "build_dependency": "project"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
